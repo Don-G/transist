@@ -633,6 +633,35 @@ function callAjax(action,params)
 					  } 
 					});
 		   			break;
+					
+					case "Register":		
+		   			dump('Register Successful');  
+		   			setStorage("kr_username", data.details.username);
+		   			setStorage("kr_password", data.details.password);
+		   			setStorage("kr_remember", data.details.remember);
+		   			setStorage("kr_todays_date", data.details.todays_date);
+		   			setStorage("kr_todays_date_raw", data.details.todays_date_raw);
+		   			setStorage("kr_token", data.details.token);
+		   			
+		   			setStorage("kr_location_accuracy", data.details.location_accuracy);
+		   			
+					kNavigator.pushPage("home.html", {
+					  animation: 'slide',
+					  callback: function(){		 					  	  
+					  	  $(".todays_date").html( getStorage("kr_todays_date") );
+					  	  if ( data.details.on_duty==1){
+					  	  	 onduty.checked=true;
+					  	  	 $(".duty_status").html( getTrans("On-Duty",'on_duty') );
+					  	  } else {
+					  	  	 onduty.checked=false;
+					  	  	 $(".duty_status").html( getTrans("Off-duty",'off_duty')  );
+					  	  }				  	  
+					  	  					  	  
+					  	  getTodayTask( data.details.todays_date_raw );
+					  	  
+					  } 
+					});
+		   			break;
 		   			
 		   			case "ChangeDutyStatus":
 		   			  if ( data.details==1){
@@ -1076,6 +1105,12 @@ function changePassword()
 {
 	var params = $( "#frm-changepass").serialize();
 	callAjax("ChangePassword",params);
+}
+
+function register()
+{
+	var params = $( "#frm-register").serialize();
+	callAjax("Register",params);
 }
 
 var onduty_handle=0;
