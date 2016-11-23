@@ -141,7 +141,7 @@
 			
 			<p>
 				<ons-button modifier="large green-button" onclick="showPage('register.html');" >
-					<span class="trn" data-trn-key="signup">Sign Up</span>
+					<span class="trn" data-trn-key="register">Sign Up</span>
 				</ons-button>
 			</p>
            
@@ -222,40 +222,12 @@
     </ons-page>    
     </ons-template>
     
+	<ons-template id="register.html"> 
+    <ons-page id="register" modifier="login-page"  >
     
-    <ons-template id="changePassword.html">
-      <ons-dialog id="dialogChangePass" cancelable > 
-              
-        <form id="frm-changepass"  method="post" onsubmit="return false;"> 
-        <div class="inner">
-           <p class="field-wrap">
-             <ons-input type="text" name="email_address"            
-              modifier="underbar" placeholder="Email" data-trn-key="email"  float></ons-input>
-           </p>
-           <p class="field-wrap">
-             <ons-input type="text" name="code"            
-              modifier="underbar" placeholder="Code" data-trn-key="code" float></ons-input>
-           </p>
-           
-           <p class="field-wrap">
-             <ons-input type="password" name="newpass" 
-              modifier="underbar" placeholder="New Password" data-trn-key="new_password" float></ons-input>
-           </p>
-           
-           <p class="text-left"">
-           <ons-button modifier="large yellow-button" onclick="changePassword()" >
-           <span class="trn" data-trn-key="submit">Submit</span>
-           </ons-button>          
-           </p>       
-           
-        </div>
-        </form>
-      
-      </ons-dialog>
-    </ons-template>
-    
-	<ons-template id="register.html">
-      <ons-dialog id="dialogregister" cancelable > 
+       <ons-toolbar modifier="yellow-toolbar">        
+         <div class="left"><ons-back-button></ons-back-button></div>          
+       </ons-toolbar> 
               
         <form id="frm-register"  method="post" onsubmit="return false;"> 
         <div class="inner">
@@ -295,6 +267,39 @@
       
       </ons-dialog>
     </ons-template>
+    
+    <ons-template id="changePassword.html">
+      <ons-dialog id="dialogChangePass" cancelable > 
+              
+        <form id="frm-changepass"  method="post" onsubmit="return false;"> 
+        <div class="inner">
+           <p class="field-wrap">
+             <ons-input type="text" name="email_address"            
+              modifier="underbar" placeholder="Email" data-trn-key="email"  float></ons-input>
+           </p>
+           <p class="field-wrap">
+             <ons-input type="text" name="code"            
+              modifier="underbar" placeholder="Code" data-trn-key="code" float></ons-input>
+           </p>
+           
+           <p class="field-wrap">
+             <ons-input type="password" name="newpass" 
+              modifier="underbar" placeholder="New Password" data-trn-key="new_password" float></ons-input>
+           </p>
+           
+           <p class="text-left"">
+           <ons-button modifier="large yellow-button" onclick="changePassword()" >
+           <span class="trn" data-trn-key="submit">Submit</span>
+           </ons-button>          
+           </p>       
+           
+        </div>
+        </form>
+      
+      </ons-dialog>
+    </ons-template>
+    
+	
     
     <ons-template id="home.html"> 
     <ons-page id="home" modifier="grey-page" >
